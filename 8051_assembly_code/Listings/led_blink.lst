@@ -1,0 +1,91 @@
+A51 MACRO ASSEMBLER  LED_BLINK                                                            02/08/2025 21:07:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\led_blink.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE led_blink.a51 SET(SMALL) DEBUG PRINT(.\Listings\led_blink.lst) OBJECT(.
+                      \Objects\led_blink.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H      
+0000 7590FF            2     MOV P1, #0FFH   ; Set all P1 pins HIGH (turn OFF all LEDs if active-low)
+0003                   3     AGAIN:
+0003 C291              4         CLR P1.1    ; Turn ON LED at P1.0
+0005 1145              5         ACALL DELAY ; Call delay subroutine
+0007 D291              6         SETB P1.1   ; Turn OFF LED at P1.0
+0009 1145              7         ACALL DELAY ; Call delay subroutine
+                       8             
+000B C292              9             CLR P1.2
+000D 1145             10             ACALL DELAY
+000F D292             11             SETB P1.2
+0011 1145             12             ACALL DELAY
+                      13             
+0013 C293             14             CLR P1.3
+0015 1145             15             ACALL DELAY
+0017 D293             16             SETB P1.3
+0019 1145             17             ACALL DELAY     
+                      18             
+001B C294             19             CLR P1.4
+001D 1145             20             ACALL DELAY
+001F D294             21             SETB P1.4
+0021 1145             22             ACALL DELAY     
+                      23             
+0023 C295             24             CLR P1.5
+0025 1145             25             ACALL DELAY
+0027 D295             26             SETB P1.5
+0029 1145             27             ACALL DELAY     
+                      28             
+002B C296             29             CLR P1.6
+002D 1145             30             ACALL DELAY
+002F D296             31             SETB P1.6
+0031 1145             32             ACALL DELAY     
+                      33             
+0033 C297             34             CLR P1.7
+0035 1145             35             ACALL DELAY
+0037 D297             36             SETB P1.7
+0039 1145             37             ACALL DELAY     
+                      38             
+003B C290             39             CLR P1.0
+003D 1145             40             ACALL DELAY
+003F D290             41             SETB P1.0
+0041 1145             42             ACALL DELAY
+                      43             
+0043 80BE             44         SJMP AGAIN  ; Repeat forever
+                      45     
+0045                  46     DELAY:
+0045 7EFF             47         MOV R6, #255  ;
+0047 7FFF             48     D1:     MOV R7, #255 ;
+0049 DFFE             49     D2: DJNZ R7, D2  
+004B DEFA             50             DJNZ R6, D1
+004D 22               51             RET
+                      52     END
+                             
+                             
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  LED_BLINK                                                            02/08/2025 21:07:10 PAGE     2
+
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  LED_BLINK                                                            02/08/2025 21:07:10 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0003H   A   
+D1 . . . . . . . .  C ADDR   0047H   A   
+D2 . . . . . . . .  C ADDR   0049H   A   
+DELAY. . . . . . .  C ADDR   0045H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
